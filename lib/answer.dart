@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
-  
   final Function questionHandler;
   final String answerText;
 
@@ -13,13 +12,19 @@ class Answer extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
       child: Container(
         width: double.infinity,
-        child: RaisedButton(
-          onPressed: questionHandler,
-          child: Text(
-            answerText,
-            style: TextStyle(color: Colors.white),
+        child: Container(
+          padding: EdgeInsets.fromLTRB(12, 0, 12, 0),
+          child: RaisedButton(
+            shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(7),
+                side: BorderSide(color: Colors.blue)),
+            onPressed: questionHandler,
+            child: Text(
+              answerText,
+              style: TextStyle(color: Colors.white),
+            ),
+            color: Colors.blue,
           ),
-          color: Colors.blue,
         ),
       ),
     );

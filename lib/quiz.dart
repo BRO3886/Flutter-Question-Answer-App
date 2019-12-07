@@ -17,6 +17,8 @@ class Quiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Question(questions[questionIndex]['questionText']),
           ...(questions[questionIndex]['answers'] as List<Map<String,Object>>)
