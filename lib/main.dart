@@ -1,15 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import './question.dart';
+
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  
-  var questionIndex = 0;
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
-  void answerQuestion(){
-    questionIndex++;
-    print(questionIndex);
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
+
+  void _answerQuestion() {
+    setState(() {
+      _questionIndex++;
+      if(_questionIndex > 2){
+        _questionIndex = 0;
+      }
+    });
+    print(_questionIndex);
   }
 
   @override
@@ -27,17 +38,17 @@ class MyApp extends StatelessWidget {
             ),
             body: Column(
               children: <Widget>[
-                Text(questions[questionIndex]),
+                Question(questions[_questionIndex]),
                 RaisedButton(
-                  onPressed: answerQuestion,
+                  onPressed: _answerQuestion, 
                   child: Text('Answer')
                 ),
                 RaisedButton(
-                  onPressed: answerQuestion,
+                  onPressed: _answerQuestion,
                   child: Text('Answer'),
                 ),
                 RaisedButton(
-                  onPressed: answerQuestion,
+                  onPressed: _answerQuestion,
                   child: Text('Answer'),
                 ),
               ],
